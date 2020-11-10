@@ -1,0 +1,27 @@
+<div *ngIf="item" class="wrapper">
+  <div class="content dx-fieldset">
+    <div class="dx-field">
+      <div class="dx-field-label">ID</div>
+      <div class="dx-field-value">
+        <dx-number-box [(value)]=" item.ID"></dx-number-box>
+      </div>
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label">Name</div>
+      <div class="dx-field-value">
+        <dx-text-box [(value)]="item.Name"></dx-text-box>
+      </div>
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label">Stop</div>
+      <div class="dx-field-value">
+        <dx-select-box [items]="stops$ | async" displayExpr="Name" valueExpr="ID"></dx-select-box>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <!--dx-button text="Cancel" (onClick)="item=null"></dx-button-->
+      <dx-button text="Save" class="button-info" (onClick)="save()"></dx-button>
+    </div>
+  </div>
+</div>

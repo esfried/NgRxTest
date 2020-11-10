@@ -1,0 +1,20 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+  grid-row-gap: 25px;
+  width: 100%;
+
+  grid-template-areas:
+    "content"
+    "buttons";
+}
+
+.buttons {
+  grid-area: buttons;
+}
+
+.content {
+  grid-area: content;
+}
+

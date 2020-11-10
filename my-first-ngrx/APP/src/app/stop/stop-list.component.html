@@ -1,0 +1,24 @@
+<dx-data-grid [dataSource]="stops$ | async" [showRowLines]="true" >
+  <dxi-column dataField="ID" caption="ID"></dxi-column>
+  <dxi-column dataField="Name" caption="Name"></dxi-column>
+  <dxi-column [width]="100" cellTemplate="cellTemplate" [fixed]="true" fixedPosition="right" caption="Commands">
+  </dxi-column>
+  <div *dxTemplate="let data of 'cellTemplate'">
+    <dx-button icon="trash" (onClick)="deleteItem(data)">
+    </dx-button>
+    <span>&nbsp;</span>
+    <dx-button icon="edit" (onClick)="editItem(data)">
+    </dx-button>
+  </div>
+</dx-data-grid>
+
+
+<dx-popup class="popup" [position]="{ my: 'center', at: 'center' }" width="300" height="300" [showTitle]="true" title="Edit" [dragEnabled]="true" [closeOnOutsideClick]="true" [(visible)]="selectedItem" [resizeEnabled]="true">
+  <dxo-animation>
+    <dxo-show [duration]="0"> </dxo-show>
+    <dxo-hide [duration]="0"></dxo-hide>
+  </dxo-animation>
+  <div *dxTemplate="let data of 'content'">
+    <stop-edit [(item)]="selectedItem"></stop-edit>
+  </div>
+</dx-popup>
